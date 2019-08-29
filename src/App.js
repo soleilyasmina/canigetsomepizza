@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Map from './components/Map';
 import './App.css';
 import { getPizzas } from './services/yelp';
 
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <Map />
     </div>
   );
 }
