@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactMapGL, { GeolocateControl, Marker } from 'react-map-gl';
+import ReactMapGL, { GeolocateControl, Marker, Popup } from 'react-map-gl';
 
 const Map = (props) => {
   const [viewport, setViewport] = useState({
@@ -8,6 +8,11 @@ const Map = (props) => {
     latitude: 40.7290884,
     longitude: -74.0037228,
     zoom: 14,
+  });
+
+  const [popup, setPopup] = useState({
+    selected: false,
+    pizza: null
   });
 
   const handleGeolocation = (newViewport) => {
@@ -30,13 +35,30 @@ const Map = (props) => {
             key={i}
             latitude={parseFloat(pizza.coordinates.latitude)}
             longitude={parseFloat(pizza.coordinates.longitude)}
-            offsetTop={-20}
-            offsetLeft={10}
           >
-            <i className={'fas fa-pizza-slice'} />
+            <i
+              className={'fas fa-pizza-slice'}
+              onClick={() => setPopup({
+                pizza: pizza,
+                selected: true
+              })}
+            />
           </Marker>
         )
       }) }
+
+      { popup.selected &&
+        <Popup
+          latitude={parseFloat(popup.pizza.coordinates.latitude)}
+          longitude={parseFloat(popup.pizza.coordinates.longitude)}
+          closeButton={true}
+          closeOnClick={false}
+          onClose={() => setPopup({ selected: false })}
+        >
+      <h4>A single pizza!</h4> 
+      </Popup>
+      }
+
       <GeolocateControl
         trackUserLocation={true}
         onViewportChange={(newViewport) => handleGeolocation(newViewport)}
