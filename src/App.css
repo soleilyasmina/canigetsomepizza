@@ -4,11 +4,39 @@
 }
 
 .mode {
-  margin: 12px;
+  position: relative;
+  top: 5.5px;
+  left: 7.5px;
+}
+
+.light {
+  filter: invert(0%);
 }
 
 .dark {
   filter: invert(100%);
+}
+
+.dark-mode {
+  background: black;
+  margin: 4.5px;
+  width: 31px;
+  height: 31px;
+  box-sizing: border-box;
+  border-radius: 15%;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+
+.light-mode {
+  background: white;
+  margin: 4.5px;
+  width: 31px;
+  height: 31px;
+  box-sizing: border-box;
+  border-radius: 15%;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s;
 }
 
 .pizza-image {

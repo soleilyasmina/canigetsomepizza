@@ -70,7 +70,7 @@ const Map = (props) => {
         onViewportChange={(newViewport) => handleGeolocation(newViewport)}
         className='geolocate-control'
       />
-      <div>
+      <div className={dark ? 'dark-mode' : 'light-mode'}>
         <i onClick={() => setDark(!dark)} className={`fas mode ${dark ? 'fa-moon dark' : 'fa-sun light'}`}></i>
       </div>
     </ReactMapGL>
