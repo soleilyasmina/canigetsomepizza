@@ -14,7 +14,7 @@ const Map = (props) => {
     <ReactMapGL 
       {...viewport}
       onViewportChange={(newViewport) => setViewport(newViewport)}
-      mapStyle='mapbox://styles/soleilyasmina/cjo5xf4eq100u2snxhz55utxx'
+      mapStyle='mapbox://styles/soleilyasmina/cjo5wyen10ze12smm9gn7fys7'
     >
       { props.pizzas.map((pizza, i) => {
         return (
