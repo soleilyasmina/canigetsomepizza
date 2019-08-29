@@ -5,17 +5,24 @@ import { getPizzas } from './services/yelp';
 
 function App() {
   const [pizzas, setPizzas] = useState([]);
+  const [location, setLocation] = useState({
+    lat: 40.7290884,
+    lon: -74.0037228
+  });
 
   useEffect(() => {
     const getPizzasCb = async () => {
-      setPizzas(await getPizzas());    
+      setPizzas(await getPizzas(location.lat, location.lon));    
     };
     getPizzasCb();
-  }, []);
+  }, [location]);
 
   return (
     <div className="App">
-      <Map pizzas={pizzas}/>
+      <Map
+        pizzas={pizzas}
+        setLocation={setLocation}
+      />
     </div>
   );
 }

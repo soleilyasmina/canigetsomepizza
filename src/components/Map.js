@@ -7,8 +7,16 @@ const Map = (props) => {
     height: '100vh',
     latitude: 40.7290884,
     longitude: -74.0037228,
-    zoom: 14
+    zoom: 14,
   });
+
+  const handleGeolocation = (newViewport) => {
+    props.setLocation({
+      lat: newViewport.latitude,
+      lon: newViewport.longitude
+    });
+    setViewport(newViewport);
+  }
 
   return (
     <ReactMapGL 
@@ -30,8 +38,8 @@ const Map = (props) => {
         )
       }) }
       <GeolocateControl
-        positionOptions={{enableHighAccuracy: true}}
         trackUserLocation={true}
+        onViewportChange={(newViewport) => handleGeolocation(newViewport)}
         className='geolocate-control'
       />
     </ReactMapGL>
