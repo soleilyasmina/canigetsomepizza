@@ -1,3 +1,8 @@
 i {
   filter: invert(100%);
 }
+
+.geolocate-control {
+  margin: 5px;
+  width: 30px;
+}

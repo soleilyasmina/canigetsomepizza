@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL, { GeolocateControl, Marker } from 'react-map-gl';
 
 const Map = (props) => {
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
+    width: '100vw',
+    height: '100vh',
     latitude: 40.7290884,
     longitude: -74.0037228,
     zoom: 14
@@ -29,6 +29,11 @@ const Map = (props) => {
           </Marker>
         )
       }) }
+      <GeolocateControl
+        positionOptions={{enableHighAccuracy: true}}
+        trackUserLocation={true}
+        className='geolocate-control'
+      />
     </ReactMapGL>
   )
 }
