@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 
 const Map = (props) => {
   const [viewport, setViewport] = useState({
@@ -14,7 +14,22 @@ const Map = (props) => {
     <ReactMapGL 
       {...viewport}
       onViewportChange={(newViewport) => setViewport(newViewport)}
-    />
+      mapStyle='mapbox://styles/soleilyasmina/cjo5xf4eq100u2snxhz55utxx'
+    >
+      { props.pizzas.map((pizza, i) => {
+        return (
+          <Marker 
+            key={i}
+            latitude={parseFloat(pizza.coordinates.latitude)}
+            longitude={parseFloat(pizza.coordinates.longitude)}
+            offsetTop={-20}
+            offsetLeft={10}
+          >
+            <i className={'fas fa-pizza-slice'} />
+          </Marker>
+        )
+      }) }
+    </ReactMapGL>
   )
 }
 

@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Map />
+      <Map pizzas={pizzas}/>
     </div>
   );
 }
