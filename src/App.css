@@ -50,6 +50,10 @@
   text-align: center;
 }
 
+.pizza-price {
+  text-align: center;
+}
+
 .popup button {
   font-size: 12px;
   position: absolute;

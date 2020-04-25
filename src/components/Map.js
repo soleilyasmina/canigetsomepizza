@@ -31,8 +31,8 @@ const Map = (props) => {
       {...viewport}
       onViewportChange={(newViewport) => setViewport(newViewport)}
       mapStyle={dark ?
-          'mapbox://styles/soleilyasmina/cjo5wyen10ze12smm9gn7fys7' :
-      'mapbox://styles/soleilyasmina/cjo5wigd70z4k2rn0tahsvkqv' }
+        'mapbox://styles/soleilyasmina/cjo5wyen10ze12smm9gn7fys7' :
+        'mapbox://styles/soleilyasmina/cjo5wigd70z4k2rn0tahsvkqv' }
     >
       { props.pizzas.map((pizza, i) => {
         return (
@@ -70,6 +70,7 @@ const Map = (props) => {
         onViewportChange={(newViewport) => handleGeolocation(newViewport)}
         className='geolocate-control'
       />
+
       <div className={dark ? 'dark-mode' : 'light-mode'}>
         <i onClick={() => setDark(!dark)} className={`fas mode ${dark ? 'fa-moon dark' : 'fa-sun light'}`}></i>
       </div>
