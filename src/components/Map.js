@@ -29,7 +29,7 @@ const Map = (props) => {
   return (
     <ReactMapGL 
       {...viewport}
-      onViewportChange={(newViewport) => setViewport(newViewport)}
+      onViewportChange={(newViewport) => setViewport({ ...newViewport, width: '100vw', height: '100vh' })}
       mapStyle={dark ?
         'mapbox://styles/soleilyasmina/cjo5wyen10ze12smm9gn7fys7' :
         'mapbox://styles/soleilyasmina/cjo5wigd70z4k2rn0tahsvkqv' }
